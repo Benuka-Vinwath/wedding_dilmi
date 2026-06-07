@@ -170,7 +170,7 @@ export default function RSVP() {
                     Edit Response
                   </button>
                   <a
-                    href="https://www.google.com/calendar/render?action=TEMPLATE&text=Iwoshani%20%26%20Chanaka%20Wedding&dates=20260518T040000Z/20260518T103000Z&details=We%20are%20excited%20to%20celebrate%20with%20you!&location=Hotel%20Aarya%20Grand%20Ganemulla%20%E2%80%93%20Grand%20Ballroom&sf=true&output=xml"
+                    href="https://calendar.app.google/Uoc7You8UuMcvAao6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-2.5 bg-[#B5A36A] text-white rounded-xl hover:bg-[#B5A36A]/90 transition-all font-serif text-sm font-medium shadow-md"
