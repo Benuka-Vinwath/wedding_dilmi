@@ -261,7 +261,7 @@ export default function App() {
               </div>
 
               <div className="text-center space-y-2 order-3">
-                <h3 className="text-5xl font-edwardian text-[#6b6f5e]">Sadeepa Perera</h3>
+                <h3 className="text-5xl font-edwardian text-[#6b6f5e]">Sadeepa Gallage</h3>
                 <p className="text-sm text-gray-500 font-sans tracking-widest uppercase">The Groom</p>
               </div>
             </div>
