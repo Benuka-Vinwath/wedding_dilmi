@@ -3,6 +3,14 @@
 @theme {
   --font-serif: "Tenor Sans", "Tenor Sans Fallback", Georgia, serif;
   --font-sans: "Poppins", "Poppins Fallback", system-ui, sans-serif;
+  --font-script: brittany, "Segoe Script", "Brush Script MT", cursive;
+  --font-edwardian: edwardian, "edwardian Fallback", cursive;
+  --color-cover-cream: #fdfbf4;
+  --color-cover-gold: #9a7b4f;
+  --color-cover-ink: #4a3a28;
+  --color-cover-button: #7b5e30;
+  --color-cover-button-hover: #8f7040;
+  --color-cover-border: #8b7355;
 }
 
 html {
@@ -61,27 +69,34 @@ body {
   }
 }
 
-@keyframes coverScaleIn {
+@keyframes coverBgIn {
   from {
     opacity: 0;
-    transform: translateX(-50%) scale(0.88);
-    filter: blur(10px);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) scale(1);
-    filter: blur(0);
   }
 }
 
 @keyframes coverCardIn {
   from {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.94) translateY(12px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes coverButtonIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -105,32 +120,113 @@ body {
   }
 }
 
-.cover-flower-top {
-  left: 50%;
-  transform: translateX(-50%);
-  animation: coverScaleIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+/* Cover typography — Edwardian script (matches savethedate.lk) */
+.font-cover-intro {
+  font-family: edwardian, "edwardian Fallback", cursive;
+  font-weight: 400;
+  color: var(--color-cover-gold);
 }
 
-.cover-flower-bottom {
-  left: 50%;
-  transform: translateX(-50%);
-  animation: coverScaleIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+.font-cover-names {
+  font-family: edwardian, "edwardian Fallback", cursive;
+  font-weight: 400;
+}
+
+.font-cover-button {
+  font-family: "Poppins", "Poppins Fallback", system-ui, sans-serif;
+  letter-spacing: 0.26em;
+}
+
+/* Cover screen */
+.cover-bg {
+  animation: coverBgIn 1.2s ease-out both;
+}
+
+.cover-bg img {
+  opacity: 0.35;
+  filter: saturate(0.85) blur(0.5px);
+}
+
+.cover-screen--exit {
+  opacity: 0;
+  transform: scale(0.98);
+  transition:
+    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.cover-flower-in {
+  animation: flowerRotate 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes flowerRotate {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-30deg);
+    animation-delay: 3s;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    animation-delay: 3s;
+  }
 }
 
 .cover-card {
-  animation: coverCardIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+  animation: coverCardIn 2.00s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  will-change: transform, opacity;
 }
 
 .cover-line-1 {
-  animation: coverFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+  animation: coverFadeUp 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
 }
 
 .cover-line-2 {
-  animation: coverFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+  animation: coverFadeUp 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.68s both;
 }
 
 .cover-line-3 {
-  animation: coverFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+  animation: coverButtonIn 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.92s both;
+}
+
+/* Ghost CTA by default → filled bronze on hover */
+.cover-cta {
+  background-color: transparent;
+  color: var(--color-cover-border);
+  border: 1px solid var(--color-cover-border);
+  letter-spacing: 0.28em;
+  box-shadow: none;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cover-cta:hover {
+  background-color: var(--color-cover-button);
+  border-color: var(--color-cover-button);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(123, 94, 48, 0.38);
+  letter-spacing: 0.3em;
+}
+
+.cover-cta:active {
+  background-color: var(--color-cover-button-hover);
+  border-color: var(--color-cover-button-hover);
+  color: #ffffff;
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 8px 18px rgba(123, 94, 48, 0.28);
+  transition-duration: 0.2s;
+}
+
+.cover-cta:focus-visible {
+  outline: 2px solid var(--color-cover-gold);
+  outline-offset: 3px;
 }
 
 .hero-intro-badge {
@@ -174,12 +270,23 @@ body {
     transition: none;
   }
 
-  .cover-flower-top,
-  .cover-flower-bottom,
+  .cover-bg,
+  .cover-flower-in,
   .cover-card,
   .cover-line-1,
   .cover-line-2,
   .cover-line-3,
+  .cover-cta:hover,
+  .cover-cta:active {
+    transform: none;
+    letter-spacing: 0.28em;
+    background-color: transparent;
+    color: var(--color-cover-border);
+    border-color: var(--color-cover-border);
+    box-shadow: none;
+  }
+
+  .cover-cta,
   .hero-intro-badge,
   .hero-intro-title,
   .hero-intro-date,
@@ -245,7 +352,29 @@ body {
 }
 
 @font-face {
+  font-family: edwardian;
+  src: url("/fonts/83177ae52aa4186c-s.p.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: edwardian Fallback;
+  src: local("Arial");
+  ascent-override: 147.22%;
+  descent-override: 56.79%;
+  line-gap-override: 0%;
+  size-adjust: 57.78%;
+}
+
+@font-face {
   font-family: brittany;
   src: url("/fonts/f195121947dce264-s.p.ttf") format("truetype");
   font-display: swap;
+}
+@font-face {
+  font-family: brittany Fallback;
+  src: local("Segoe Script");
+  ascent-override: 128.35%;
+  descent-override: 54.04%;
+  line-gap-override: 0%;
+  size-adjust: 74.02%;
 }
