@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { supabase } from '../supabaseClient';
 
 export default function RSVP() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function RSVP() {
   
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,15 +21,53 @@ export default function RSVP() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError(null);
 
-    // Simulate sending RSVP
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const attendingBool = formData.attending === 'yes';
+      const guestsCount = formData.attending === 'yes' ? parseInt(formData.guests, 10) : 0;
+
+      // Try inserting into 'rsvps' table first
+      const { error } = await supabase
+        .from('rsvps')
+        .insert([
+          {
+            name: formData.name,
+            is_attend: attendingBool,
+            no_of_guests: guestsCount,
+            message: formData.message
+          }
+        ]);
+
+      if (error) {
+        // Fallback to 'rsvp' table if 'rsvps' table doesn't exist/work
+        console.warn("Failed to insert into 'rsvps' table. Trying fallback 'rsvp' table...", error);
+        const { error: fallbackError } = await supabase
+          .from('rsvp')
+          .insert([
+            {
+              name: formData.name,
+              is_attend: attendingBool,
+              no_of_guests: guestsCount,
+              message: formData.message
+            }
+          ]);
+
+        if (fallbackError) {
+          throw new Error(fallbackError.message || error.message);
+        }
+      }
+
       setIsSubmitted(true);
-    }, 1200);
+    } catch (err) {
+      console.error('Error submitting RSVP:', err);
+      setSubmitError(err.message || 'Failed to send RSVP. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -38,6 +78,7 @@ export default function RSVP() {
       message: ''
     });
     setIsSubmitted(false);
+    setSubmitError(null);
   };
 
   return (
@@ -214,6 +255,12 @@ export default function RSVP() {
                     className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 font-serif focus:ring-2 focus:ring-[#B5A36A]/50 focus:border-transparent outline-none transition-all resize-none"
                   ></textarea>
                 </div>
+
+                {submitError && (
+                  <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-sm font-serif text-center">
+                    {submitError}
+                  </div>
+                )}
 
                 <button
                   type="submit"
