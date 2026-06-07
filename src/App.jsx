@@ -306,10 +306,10 @@ export default function App() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5 fill-[#B5A36A]/10">
                       <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                     </svg>
-                    <h3 className="text-2xl font-serif text-gray-800 font-medium">Friendship to Eternity</h3>
+                    <h3 className="text-2xl font-serif text-gray-800 font-medium">Rooted in friendship, blooming in love</h3>
                   </div>
                   <p className="text-gray-600 leading-relaxed font-serif text-base text-justify">
-                    Before love, there was friendship. Pure, simple, and filled with endless memories. Then one day, without warning, our hearts began to speak a different language. What we found was not just love, but a forever within each other. Four years have passed in a heartbeat, and still, our story feels like it’s just begun. Join us as we step into our forever, together.
+                    Before “I love you,” there was just friendship — simple, honest, full of trust and tiny moments. Then one day our smiles meant more, silence felt safe, and our hearts caught up. Love didn’t replace friendship. It grew from it. Today we’re choosing forever. Join us as we begin our next chapter together
                   </p>
                 </div>
               </div>
@@ -444,7 +444,7 @@ export default function App() {
                 </svg>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight tracking-wide">
+              <h2 className="text-4xl md:text-5xl font-edwardian leading-tight tracking-wide">
                 We Can't Wait to Celebrate with You!
               </h2>
               <p className="text-lg md:text-xl opacity-90 leading-relaxed font-serif italic">
@@ -481,7 +481,7 @@ export default function App() {
             <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6 text-rose-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5 fill-[#B5A36A]/10">
                     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                   </svg>
                   <span className="text-2xl font-serif tracking-widest font-semibold">D &amp; S</span>
