@@ -128,7 +128,7 @@ export default function RSVP() {
                 </span>
               </div>
               <p className="text-gray-600 font-serif leading-relaxed text-sm">
-                Your presence is the most beautiful gift we could ask for. As we step into a new chapter of our lives, we would be truly honored to celebrate this special day with you.
+                Your presence would mean the world to us. As we begin this new chapter, we'd be honored to celebrate with you
               </p>
             </div>
           </div>

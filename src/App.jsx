@@ -236,7 +236,7 @@ export default function App() {
               <h2 className="text-4xl font-serif text-gray-800 tracking-wide">The Happy Couple</h2>
               <div className="w-32 h-[2px] bg-[#B5A36A] rounded-full"></div>
               <p className="text-lg text-gray-500 max-w-2xl font-serif italic">
-                Two hearts, one love story. Meet the bride and groom who are about to begin their forever journey.
+                One love, two hearts.Here's the bride and groom beginning their lifelong journey.
               </p>
             </div>
 
@@ -295,7 +295,7 @@ export default function App() {
               <h2 className="text-4xl font-serif text-gray-800 tracking-wide">Our Love Story</h2>
               <div className="w-32 h-[2px] bg-[#B5A36A] rounded-full"></div>
               <p className="text-lg text-gray-500 max-w-2xl font-serif italic">
-                Every love story is beautiful, but ours is our favorite. Here's how our journey began.
+                Every romance has its magic, yet ours hlods our heart. Here's the beginning of our tale.
               </p>
             </div>
 
@@ -327,7 +327,7 @@ export default function App() {
                     <span className="font-semibold font-serif text-[#B5A36A]">Our Promise</span>
                   </div>
                   <p className="text-gray-600 italic font-serif text-sm">
-                    "From shared smiles to forever vows."
+                    "From where we began to the vows we keep forever."
                   </p>
                 </div>
               </div>
