@@ -393,7 +393,7 @@ export default function App() {
                       </svg>
                       <div>
                         <p className="text-xl font-medium tracking-wide">Hotel Jetwing Blue, Negambo</p>
-                        <p className="text-xs uppercase tracking-widest opacity-75 mt-1 font-sans">Grand Ballroom</p>
+                        <p className="text-xs uppercase tracking-widest opacity-75 mt-1 font-sans">Ballroom</p>
                         
                       </div>
                     </div>
