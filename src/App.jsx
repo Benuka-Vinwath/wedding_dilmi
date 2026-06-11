@@ -72,7 +72,7 @@ export default function App() {
   return (
     <div className="flex flex-col min-h-screen font-serif select-none">
       {/* Background Audio */}
-      <audio ref={audioRef} loop src="/iwoshani/music.mp3" />
+      <audio ref={audioRef} loop src="/dilmi/music.mp3" />
 
       {/* Elegant Invitation Cover Overlay */}
       <Cover onViewInvitation={handlePlayMusic} />
@@ -172,8 +172,8 @@ export default function App() {
         <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center">
           <div className="absolute inset-0">
             <picture>
-              <source media="(min-width: 768px)" srcSet="/iwoshani/2.jpg" />
-              <img src="/iwoshani/4.jpg" alt="Couple background" className="w-full h-full object-cover object-center" />
+              <source media="(min-width: 768px)" srcSet="/dilmi/2.jpg" />
+              <img src="/dilmi/1.jpg" alt="Couple background" className="w-full h-full object-cover object-center" />
             </picture>
             <div className="absolute inset-0 bg-gradient-to-b from-[#877f74]/15 via-[#877f74]/40 to-[#877f74]/55"></div>
           </div>
@@ -249,7 +249,7 @@ export default function App() {
               <div className="flex justify-center order-1 md:order-2">
                 <div className="relative group">
                   <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-[6px] border-[#B5A36A] shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
-                    <img src="/iwoshani/8.jpg" alt="Happy Couple photo" className="w-full h-full object-cover" />
+                    <img src="/dilmi/8.jpg" alt="Happy Couple photo" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute -top-3 right-6 bg-[#B5A36A] p-2.5 rounded-full shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5 text-white">
@@ -272,7 +272,7 @@ export default function App() {
         <section className="relative w-full h-[65vh] overflow-hidden bg-black reveal">
           <div className="w-full h-full">
             <img
-              src="/iwoshani/2.jpg"
+              src="/dilmi/2.jpg"
               alt="Couple in love banner"
               className="w-full h-full object-cover grayscale contrast-125 brightness-50 transition-all duration-[1.2s] ease-out hover:grayscale-0 hover:brightness-75 cursor-pointer"
             />
@@ -316,7 +316,7 @@ export default function App() {
 
               <div className="relative">
                 <div className="relative h-[480px] overflow-hidden rounded-3xl shadow-xl border border-gray-100">
-                  <img src="/iwoshani/5.jpg" alt="Couple's love story photo" className="w-full h-full object-cover" />
+                  <img src="/dilmi/5.jpg" alt="Couple's love story photo" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs border border-rose-100 transition-transform duration-300 hover:scale-[1.02]">
@@ -428,7 +428,7 @@ export default function App() {
         {/* Romantic Bottom Banner Section */}
         <section className="w-full py-32 relative overflow-hidden reveal">
           <div className="absolute inset-0">
-            <img src="/iwoshani/1.jpg" alt="Sunset background" className="h-full w-full object-cover" />
+            <img src="/dilmi/1.jpg" alt="Sunset background" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#7B5B29] via-[#7B5B29]/75 to-[#7B5B29]"></div>
           </div>
           

@@ -99,7 +99,7 @@ export default function RSVP() {
           <div className="relative group">
             <div className="relative h-[480px] overflow-hidden rounded-3xl shadow-xl transition-all duration-500 hover:shadow-2xl">
               <img
-                src="/iwoshani/6.jpg"
+                src="/dilmi/6.jpg"
                 alt="Wedding RSVP"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
