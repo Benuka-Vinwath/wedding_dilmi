@@ -426,7 +426,7 @@ export default function App() {
          {/*<Gallery />*/}
 
         {/* Romantic Bottom Banner Section */}
-        <section className="w-full py-32 relative overflow-hidden reveal">
+        {/* <section className="w-full py-32 relative overflow-hidden reveal">
           <div className="absolute inset-0">
             <img src="/dilmi/1.jpg" alt="Sunset background" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#7B5B29] via-[#7B5B29]/75 to-[#7B5B29]"></div>
@@ -470,7 +470,7 @@ export default function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
 
         {/* RSVP Section */}
         <RSVP />
