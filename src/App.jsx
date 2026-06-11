@@ -295,7 +295,7 @@ export default function App() {
               <h2 className="text-4xl font-serif text-gray-800 tracking-wide">Our Love Story</h2>
               <div className="w-32 h-[2px] bg-[#B5A36A] rounded-full"></div>
               <p className="text-lg text-gray-500 max-w-2xl font-serif italic">
-                Every romance has its magic, yet ours hlods our heart. Here's the beginning of our tale.
+                Every romance has its magic, yet ours holds our heart. Here's the beginning of our tale.
               </p>
             </div>
 
@@ -342,7 +342,7 @@ export default function App() {
               <h2 className="text-4xl font-serif text-gray-800 tracking-wide">Wedding Details</h2>
               <div className="w-32 h-[2px] bg-[#7B5B29] rounded-full"></div>
               <p className="text-lg text-gray-500 max-w-2xl font-serif italic">
-                All the important information you need to celebrate our special day with us.
+                All the helpful information you need to celebrate our special day with us.
               </p>
             </div>
 
@@ -392,7 +392,7 @@ export default function App() {
                         <circle cx="12" cy="10" r="3" />
                       </svg>
                       <div>
-                        <p className="text-xl font-medium tracking-wide">Hotel Jetwing Blue, Negambo</p>
+                        <p className="text-xl font-medium tracking-wide">Hotel Jetwing Blue, Negombo</p>
                         <p className="text-xs uppercase tracking-widest opacity-75 mt-1 font-sans">Ballroom</p>
                         
                       </div>
@@ -508,7 +508,7 @@ export default function App() {
                 <h3 className="text-lg font-medium tracking-widest uppercase">Wedding Info</h3>
                 <div className="space-y-1 text-gray-200/80">
                   <p className="font-semibold">Thursday, 16th July 2026</p>
-                  <p>Hotel Jetwing Blue, Negambo</p>
+                  <p>Hotel Jetwing Blue, Negombo</p>
                   <p className="text-xs opacity-75 font-sans pt-1">#DilmiAndSadeepa2026</p>
                 </div>
               </div>
