@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Gallery() {
   const images = [
-    { src: '/iwoshani/1.jpg', alt: 'Couple Moment 1', height: 'h-96' },
-    { src: '/iwoshani/2.jpg', alt: 'Couple Moment 2', height: 'h-64' },
-    { src: '/iwoshani/3.jpg', alt: 'Couple Moment 3', height: 'h-80' },
-    { src: '/iwoshani/4.jpg', alt: 'Couple Moment 4', height: 'h-72' },
-    { src: '/iwoshani/5.jpg', alt: 'Couple Moment 5', height: 'h-56' },
-    { src: '/iwoshani/6.jpg', alt: 'Couple Moment 6', height: 'h-96' },
+    { src: '/dilmi/1.jpg', alt: 'Couple Moment 1', height: 'h-96' },
+    { src: '/dilmi/2.jpg', alt: 'Couple Moment 2', height: 'h-64' },
+    { src: '/dilmi/3.jpg', alt: 'Couple Moment 3', height: 'h-80' },
+    { src: '/dilmi/4.jpg', alt: 'Couple Moment 4', height: 'h-72' },
+    { src: '/dilmi/5.jpg', alt: 'Couple Moment 5', height: 'h-56' },
+    { src: '/dilmi/6.jpg', alt: 'Couple Moment 6', height: 'h-96' },
   ];
 
   return (
