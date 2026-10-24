@@ -233,7 +233,7 @@ export default function App() {
         <section className="w-full py-24 bg-white reveal">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center space-y-4 text-center mb-20">
-              <h2 className="text-4xl font-serif text-gray-800 tracking-wide">The Happy Couple</h2>
+              <h2 className="text-4xl font-serif text-gray-800 tracking-wide">The Happiest Couple</h2>
               <div className="w-32 h-[2px] bg-[#B5A36A] rounded-full"></div>
               <p className="text-lg text-gray-500 max-w-2xl font-serif italic">
                 One love, two hearts.Here's the bride and groom beginning their lifelong journey.
