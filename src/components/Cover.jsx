@@ -16,58 +16,64 @@ export default function Cover({ onViewInvitation }) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center w-full min-h-[100dvh] overflow-hidden transition-all duration-1000 ease-in-out ${
-        isDismissed ? 'opacity-0 scale-[0.98] pointer-events-none' : 'opacity-100 scale-100'
+      className={`cover-screen fixed inset-0 z-50 flex items-center justify-center w-full min-h-[100dvh] px-4 overflow-hidden ${
+        isDismissed ? 'cover-screen--exit' : ''
       }`}
       aria-hidden={isDismissed}
     >
-      <picture className="absolute inset-0 w-full h-full">
-        <source media="(min-width: 768px)" srcSet="/anushka/bg-d.jpg" />
+      <div className="cover-bg absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-0 bg-[#FDFBF4]" />
+        <picture className="absolute inset-0">
+          <source media="(min-width: 768px)" srcSet="/anushka/bg-d.jpg" />
+          <img
+            src="/anushka/bg.jpg"
+            alt=""
+            className="h-full w-full object-cover object-center scale-105"
+          />
+        </picture>
+        <div className="absolute inset-0 bg-[#FDFBF4]/82" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF4]/40 via-transparent to-[#F5F0E8]/50" />
+      </div>
+
+      <article className="cover-card relative z-10 flex w-[min(88vw,368px)] max-h-[min(90dvh,700px)] min-h-[min(80dvh,600px)] flex-col items-center bg-white text-center shadow-[0_16px_56px_rgba(74,58,40,0.12)] rounded-[min(44vw,188px)] overflow-hidden shrink-0">
         <img
-          src="/anushka/bg.jpg"
-          alt="Wedding background"
-          className="w-full h-full object-cover object-center"
+          src="/anushka/flower-top.png"
+          alt=""
+          aria-hidden="true"
+          className="cover-flower-in cover-flower-in-top w-[min(74%,248px)] max-h-[17vh] object-contain object-bottom mt-3 sm:mt-5 pointer-events-none select-none"
         />
-      </picture>
-      <div className="absolute inset-0 bg-[#F8F4EA]/45" />
 
-      <img
-        src="/anushka/flower-top.png"
-        alt=""
-        aria-hidden="true"
-        className="cover-flower-top absolute top-0 sm:top-2 md:-top-6 lg:-top-10 z-20 w-[min(52vw,220px)] sm:w-[200px] md:w-[240px] lg:w-[220px] max-h-[22vh] sm:max-h-none object-contain pointer-events-none drop-shadow-xl"
-      />
-
-      <div className="cover-card relative z-10 mx-auto w-[min(88vw,340px)] max-h-[min(72dvh,620px)] aspect-[2/3.1] rounded-[999px] flex flex-col items-center justify-center backdrop-blur-md bg-white/25 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-white/35 text-center px-5 sm:px-8 shrink-0">
-        <div className="flex flex-col items-center justify-center w-full py-8 sm:py-10 md:py-12 gap-1">
-          <p className="cover-line-1 text-lg sm:text-xl md:text-2xl text-[#7B5B29] text-center font-serif leading-snug opacity-90 px-2">
+        <div className="flex flex-1 flex-col items-center justify-center w-full px-6 sm:px-9 py-3 sm:py-5">
+          <p className="cover-line-1 font-cover-intro text-[clamp(1.2rem,5vw,1.5rem)] leading-snug max-w-[260px] mb-4 sm:mb-6">
             You are invited to the Wedding of
           </p>
-
-          <h1 className="cover-line-2 text-4xl sm:text-5xl md:text-6xl text-[#5F451E] leading-[1.1] my-4 sm:my-6 font-serif">
-            Dilmi <br />
-            <span className="text-2xl sm:text-3xl md:text-4xl">&amp;</span> <br />
-            Sadeepa
+      
+          <h1 className="cover-line-2 font-cover-names flex flex-col items-center leading-[1.02] text-[#4A3A28]">
+            <span className="text-[clamp(2.85rem,12vw,4rem)]">Dilmi</span>
+            <span className="font-cover-names text-[clamp(1.25rem,4.5vw,1.65rem)] my-0.5 sm:my-1 text-[#5C4832]">
+              &amp;
+            </span>
+            <span className="text-[clamp(2.85rem,12vw,4rem)]">Sadeepa</span>
           </h1>
 
-          <div className="cover-line-3">
+          <div className="cover-line-3 mt-7 sm:mt-9">
             <button
               type="button"
               onClick={handleDismiss}
-              className="font-sans px-8 sm:px-10 py-3 sm:py-3.5 border border-[#7B5B29] text-[#7B5B29] rounded-full hover:bg-[#7B5B29] hover:text-white transition-colors duration-500 uppercase tracking-[0.25em] text-[10px] relative z-30 font-medium active:scale-95 shadow-sm"
+              className="cover-cta font-cover-button inline-flex items-center justify-center min-w-[200px] px-10 sm:px-12 py-3.5 sm:py-4 rounded-full uppercase text-[10px] sm:text-[11px] font-medium"
             >
               View Invitation
             </button>
           </div>
         </div>
-      </div>
 
-      <img
-        src="/anushka/flower-bottom.png"
-        alt=""
-        aria-hidden="true"
-        className="cover-flower-bottom absolute bottom-0 sm:bottom-1 md:-bottom-8 lg:-bottom-12 z-20 w-[min(58vw,260px)] sm:w-[240px] md:w-[280px] lg:w-[240px] max-h-[24vh] sm:max-h-none object-contain pointer-events-none drop-shadow-xl"
-      />
+        <img
+          src="/anushka/flower-bottom.png"
+          alt=""
+          aria-hidden="true"
+          className="cover-flower-in cover-flower-in-bottom w-[min(80%,268px)] max-h-[19vh] object-contain object-top mb-2 sm:mb-4 pointer-events-none select-none"
+        />
+      </article>
     </div>
   );
 }

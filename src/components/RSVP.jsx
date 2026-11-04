@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { supabase } from '../supabaseClient';
 
 export default function RSVP() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function RSVP() {
   
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,15 +21,53 @@ export default function RSVP() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError(null);
 
-    // Simulate sending RSVP
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const attendingBool = formData.attending === 'yes';
+      const guestsCount = formData.attending === 'yes' ? parseInt(formData.guests, 10) : 0;
+
+      // Try inserting into 'rsvps' table first
+      const { error } = await supabase
+        .from('rsvps')
+        .insert([
+          {
+            name: formData.name,
+            is_attend: attendingBool,
+            no_of_guests: guestsCount,
+            message: formData.message
+          }
+        ]);
+
+      if (error) {
+        // Fallback to 'rsvp' table if 'rsvps' table doesn't exist/work
+        console.warn("Failed to insert into 'rsvps' table. Trying fallback 'rsvp' table...", error);
+        const { error: fallbackError } = await supabase
+          .from('rsvp')
+          .insert([
+            {
+              name: formData.name,
+              is_attend: attendingBool,
+              no_of_guests: guestsCount,
+              message: formData.message
+            }
+          ]);
+
+        if (fallbackError) {
+          throw new Error(fallbackError.message || error.message);
+        }
+      }
+
       setIsSubmitted(true);
-    }, 1200);
+    } catch (err) {
+      console.error('Error submitting RSVP:', err);
+      setSubmitError(err.message || 'Failed to send RSVP. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -38,6 +78,7 @@ export default function RSVP() {
       message: ''
     });
     setIsSubmitted(false);
+    setSubmitError(null);
   };
 
   return (
@@ -58,7 +99,7 @@ export default function RSVP() {
           <div className="relative group">
             <div className="relative h-[480px] overflow-hidden rounded-3xl shadow-xl transition-all duration-500 hover:shadow-2xl">
               <img
-                src="/iwoshani/6.jpg"
+                src="/dilmi/6.jpg"
                 alt="Wedding RSVP"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -87,7 +128,7 @@ export default function RSVP() {
                 </span>
               </div>
               <p className="text-gray-600 font-serif leading-relaxed text-sm">
-                Your presence is the most beautiful gift we could ask for. As we step into a new chapter of our lives, we would be truly honored to celebrate this special day with you.
+                Your presence would mean the world to us. As we begin this new chapter, we'd be honored to celebrate with you
               </p>
             </div>
           </div>
@@ -129,7 +170,7 @@ export default function RSVP() {
                     Edit Response
                   </button>
                   <a
-                    href="https://www.google.com/calendar/render?action=TEMPLATE&text=Iwoshani%20%26%20Chanaka%20Wedding&dates=20260518T040000Z/20260518T103000Z&details=We%20are%20excited%20to%20celebrate%20with%20you!&location=Hotel%20Aarya%20Grand%20Ganemulla%20%E2%80%93%20Grand%20Ballroom&sf=true&output=xml"
+                    href="https://calendar.app.google/Uoc7You8UuMcvAao6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-2.5 bg-[#B5A36A] text-white rounded-xl hover:bg-[#B5A36A]/90 transition-all font-serif text-sm font-medium shadow-md"
@@ -214,6 +255,12 @@ export default function RSVP() {
                     className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 font-serif focus:ring-2 focus:ring-[#B5A36A]/50 focus:border-transparent outline-none transition-all resize-none"
                   ></textarea>
                 </div>
+
+                {submitError && (
+                  <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-sm font-serif text-center">
+                    {submitError}
+                  </div>
+                )}
 
                 <button
                   type="submit"
